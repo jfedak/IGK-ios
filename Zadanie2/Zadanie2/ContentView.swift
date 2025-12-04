@@ -9,12 +9,14 @@ import SwiftUI
 
 struct Task: Identifiable {
     let id = UUID()
-    let imageNumber: Int
+    var imageNumber: Int
     let name: String
+    var state: Bool = false
 }
 
 struct TaskView: View {
     @Binding var task: Task
+    @State var toggleOn: Bool = false
     
     var body: some View {
         VStack {
@@ -23,8 +25,23 @@ struct TaskView: View {
             Image(String(task.imageNumber))
                 .resizable()
                 .frame(width: 300, height: 300)
+            Text("Toggle to change the status")
+                .padding()
+            Toggle(task.state ? "Done" : "To-do", systemImage: task.state ? "checkmark.square.fill" : "checkmark.square", isOn: toggleBinding)
+                .toggleStyle(.button)
             Spacer()
         }
+    }
+    
+    var toggleBinding: Binding<Bool> {
+        Binding<Bool>(
+            get: {
+                return task.state
+            },
+            set: { newValue in
+                task.state = newValue
+            }
+        )
     }
 }
 
@@ -45,7 +62,16 @@ struct ContentView: View {
                 NavigationLink {
                     TaskView(task: $task)
                 } label: {
-                    Text(task.name)
+                    HStack {
+                        if (task.state) {
+                            Image(systemName: "checkmark.square.fill")
+                                .foregroundColor(.blue)
+                        } else {
+                            Image(systemName: "checkmark.square")
+                                .foregroundColor(.blue)
+                        }
+                        Text(task.name)
+                    }
                 }
                 .swipeActions(edge: .trailing) {
                     Button(role: .destructive) {
