@@ -1,1 +1,25 @@
-**/.DS_Store
+# MARK: - macOS System Files
+.DS_Store
+*.swp
+*.lock
+
+# MARK: - Xcode Build Generated Files
+# Ignores build artifacts in all subdirectories
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# MARK: - Xcode User Settings
+# These files track your personal window layout and open files.
+# They change every time you click a file and should NEVER be committed.
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.osxcfg
+*.pbuser
+*.userid
+*.xcuserstate
+xcuserdata/
