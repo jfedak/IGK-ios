@@ -1,0 +1,90 @@
+from fastapi import FastAPI, Body
+
+app = FastAPI()
+
+products = [
+  {
+    "category": "Shoes",
+    "products": [
+      {
+        "name": "CloudRunner Elite",
+        "price": 129.99,
+        "description": "Lightweight running shoes designed for maximum energy return and marathon endurance."
+      },
+      {
+        "name": "Urban Trekker Boots",
+        "price": 145.00,
+        "description": "Durable leather boots with slip-resistant soles, perfect for city streets and light trails."
+      },
+      {
+        "name": "Canvas Classic Lo",
+        "price": 45.50,
+        "description": "Timeless low-top canvas sneakers suitable for everyday casual wear in any season."
+      }
+    ]
+  },
+  {
+    "category": "T-shirts",
+    "products": [
+      {
+        "name": "Vintage Logo Tee",
+        "price": 24.99,
+        "description": "Soft organic cotton blend featuring a distressed retro-style brand graphic."
+      },
+      {
+        "name": "Pro-Active Fit",
+        "price": 35.00,
+        "description": "Moisture-wicking athletic top designed to keep you cool during intense workouts."
+      },
+      {
+        "name": "Essential Heavyweight",
+        "price": 18.00,
+        "description": "A premium heavyweight cotton t-shirt with a boxy fit that goes with everything."
+      }   
+    ]
+  },
+  {
+    "category": "Hoodies",
+    "products": [
+      {
+        "name": "Cozy Fleece Pullover",
+        "price": 55.00,
+        "description": "Oversized fit hoodie lined with brushed fleece and a spacious kangaroo pocket."
+      },
+      {
+        "name": "Streetwear Zip-Up",
+        "price": 72.50,
+        "description": "Modern slim-fit zip hoodie featuring reinforced stitching and metal hardware."
+      },
+      {
+        "name": "Tech-Knit Hoodie",
+        "price": 85.00,
+        "description": "Breathable and stretchable hoodie designed specifically for active lifestyles and travel."
+      }
+    ]
+  },
+    {
+    "category": "Jackets",
+    "products": [
+      {
+        "name": "Midnight Bomber",
+        "price": 110.00,
+        "description": "Classic silhouette bomber jacket featuring a water-resistant nylon shell and ribbed cuffs."
+      },
+      {
+        "name": "Alpine Windbreaker",
+        "price": 95.00,
+        "description": "Ultra-lightweight shell jacket that packs down into its own pocket for easy storage."},
+      {
+        "name": "Denim Sherpa Coat",
+        "price": 130.00,
+        "description": "Rugged indigo denim jacket lined with warm faux sherpa for cooler autumn days."
+      }
+    ]
+  }
+]
+
+@app.get("/dane")
+def get_data():
+    return products
+
