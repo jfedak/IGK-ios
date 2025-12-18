@@ -23,3 +23,6 @@ DerivedData/
 *.userid
 *.xcuserstate
 xcuserdata/
+
+
+**/__pycache__/
