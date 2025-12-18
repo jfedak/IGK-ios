@@ -63,7 +63,7 @@ products = [
       }
     ]
   },
-    {
+  {
     "category": "Jackets",
     "products": [
       {
@@ -84,7 +84,7 @@ products = [
   }
 ]
 
-@app.get("/dane")
+@app.get("/products")
 def get_data():
     return products
 
