@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Zadanie5App: App {
+    @StateObject var authService = AuthService()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreenView()
+                .environmentObject(authService)
         }
     }
 }
