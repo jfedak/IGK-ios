@@ -33,6 +33,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Cart", systemImage: "cart.fill")
                 }
+            
+            OrderListView()
+                .tabItem {
+                    Label("Orders", systemImage: "cube.box.fill")
+                }
         }
         .environmentObject(shoppingCartItems)
         .tint(.blue)
